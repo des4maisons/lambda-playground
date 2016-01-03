@@ -4,11 +4,16 @@ GOPATH ?= $(HOME)/projects/go-workspace
 all: hello.zip
 
 hello.zip: hello
-	zip $@ lambda-hello.js $<
+	mkdir -p build
+	cp $< lambda-hello.js build
+	chmod -R a+r build/*
+	chmod -R a-w build/*
+	chmod a+x build/hello
+	zip -Xjr $@ build
 
 hello: hello.go
-	docker-compose run build
+	docker-compose run build go build hello.go
 
 .PHONY: clean
 clean:
-	rm -f hello hello.zip
+	rm -rf hello hello.zip build

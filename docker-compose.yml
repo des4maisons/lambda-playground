@@ -3,7 +3,6 @@ build:
   volumes:
     - '.:/go/src/github.com/des4maisons/lambda-hello'
   working_dir: '/go/src/github.com/des4maisons/lambda-hello'
-  command: 'go build hello.go'
   environment:
     - GOOS=linux
     - GOARCH=amd64
