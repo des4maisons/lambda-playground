@@ -1,8 +1,0 @@
-build:
-  image: 'golang:1.5.2-alpine'
-  volumes:
-    - '.:/go/src/github.com/des4maisons/lambda-hello'
-  working_dir: '/go/src/github.com/des4maisons/lambda-hello'
-  environment:
-    - GOOS=linux
-    - GOARCH=amd64

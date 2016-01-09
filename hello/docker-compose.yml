@@ -1,0 +1,8 @@
+build:
+  image: 'golang:1.5.2-alpine'
+  volumes:
+    - '.:/go/src/app/'
+  working_dir: '/go/src/app/'
+  environment:
+    - GOOS=linux
+    - GOARCH=amd64
